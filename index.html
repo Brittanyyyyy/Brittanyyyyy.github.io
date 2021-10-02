@@ -1,0 +1,114 @@
+<!doctype html>
+<meta name="viewport" content="height=device-height,width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<html>  
+<head>  
+<meta charset="utf-8">
+<title>福州大学一码通</title>  
+<style>  
+body{
+background: url(https://Brittangyyyyy.github.io/2.jpg") no-repeat fixed center ;
+background-size: 100% 100% ;
+
+}
+div{
+ color:#228B22;
+}
+#id1{text-align:center;margin-top: 44%}
+#show_time {  
+text-align:center;
+}  
+#show_time1 {
+}
+#div1{
+ position: relative;
+ animation-name: example;
+ animation-duration: 5s;
+ animation-timing-function: linear;
+ animation-iteration-count: infinite;
+ animation-direction: reverse;
+}
+
+@keyframes example {
+ from{ left:5%;}
+ to{left:80%;}
+}
+.div-inline{ display:inline
+}
+
+
+</style>  
+</head>  
+  
+<body >
+
+<div id="id1">
+    <div id="show_time" class= "div-inline" style=" font-size:22px;">
+    <script>
+    setInterval("fun(show_time)",1);
+    function fun(timeID){
+    var date = new Date();  //创建对象
+    var m =date.getMonth()+1;   //获取月份  返回0-11
+    var d = date.getDate(); // 获取日
+    var h = date.getHours();  //时
+    var minute = date.getMinutes()  //分
+    var s = date.getSeconds(); //秒
+    var sss = date.getMilliseconds() ; //毫秒
+    if(m<10){
+    m = "0"+m;
+    }
+    if(d<10){
+    d = "0"+d;
+    }
+    if(h<10){
+    h = "0"+h;
+    }
+    if(minute<10){
+    minute = "0"+minute;
+    }
+    if(s<10){
+    s = "0"+s;
+    }
+    document.getElementById(timeID.id).innerHTML =  m+"月"+d+"日 ";
+      }
+    </script>
+    </div>
+
+    <div id="show_time1" class= "div-inline" style="font-size:40px;">
+    <script>
+    setInterval("fun1(show_time1)",1);
+    function fun1(timeID1){
+    var date = new Date();  //创建对象h
+     var s = date.getSeconds(); //秒
+    if(s<10){
+    s = "0"+s;
+    }
+    document.getElementById(timeID1.id).innerHTML = " "+ s+" ";
+      }
+    </script>
+
+    </div>
+     <div id = "show_time2" class= "div-inline" style=" font-size:22px;">
+      <script>
+       setInterval("fun2(show_time2)",1);
+       function fun2(timeID2){
+        var date = new Date();  //创建对象
+        var h = date.getHours();  //时
+        var minute = date.getMinutes()  //分
+        if(minute<10){
+         minute = "0"+minute;
+        }
+        if(h<10){
+          h = "0"+h;
+        }
+        document.getElementById(timeID2.id).innerHTML = h+":"+minute;
+       }
+      </script>
+     </div>
+</div>
+
+<div id= "div1" style="margin-top:40%;font-size:43px;">远志</div>
+
+</body>  
+  
+</html>  
+  
