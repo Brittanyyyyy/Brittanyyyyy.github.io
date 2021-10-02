@@ -19,7 +19,7 @@ body{
 }
 #day{
     position: fixed;
-    top:30.55%;
+    top:29%;
     left: 63%;
     color: #228B22;
     font-size: 70px;
@@ -27,7 +27,7 @@ body{
 }
 #clock{
     position: fixed;
-    top:30.75%;
+    top:29%;
     left: 62.9%;
     font-size: 70px;
     color:#228B22;
@@ -44,9 +44,9 @@ body{
 }
  
  #div1{
- position: relative;
-  top:30%;
-  font-size:43px;
+ position: fixed;
+  top:60%;
+  font-size:100px;
  animation-name: example;
  animation-duration: 5s;
  animation-timing-function: linear;
@@ -90,6 +90,7 @@ body{
         month = month + 1;
         if (hour < 10) hour = "0" + hour;
         if (minu < 10) minu = "0" + minu;
+	if (sec < 10) sec = "0" + sec;    
         $("#m").text(month+"月"+date+"日");
         $("#clock").text(hour+":"+minu);
         $("#sec").text(sec);
