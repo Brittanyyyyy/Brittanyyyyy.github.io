@@ -1,27 +1,52 @@
-<!doctype html>
-<!-- <meta name="viewport" content="height=device-height,width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/> -->
-<html>  
-<head>  
-<meta charset="utf-8">
-<title>福州大学一码通</title>  
- <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<style>  
-body{
-background: url('2.jpg') no-repeat fixed center ;
-background-size: 100% 100% ;
 
+
+<html>
+<head>
+<title>福州大学电子通行码</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style>
+body{
+    background: url('2.jpg') no-repeat fixed center;
+    background-size:100% 100%
 }
-div{
- color:#228B22;
+#month{
+    position: fixed;
+    top: 30.1%;
+    left: 14.93%;
+    font-size: 70px;
+    color: #228B22;
+    z-index: 10;
 }
-#id1{text-align:center;margin-top: 44%}
-#show_time {  
-text-align:center;
-}  
-#show_time1 {
+#day{
+    position: fixed;
+    top:30.55%;
+    left: 63%;
+    color: #228B22;
+    font-size: 70px;
+    z-index: 10;
 }
-#div1{
+#clock{
+    position: fixed;
+    top:30.75%;
+    left: 62.9%;
+    font-size: 70px;
+    color:#228B22;
+    z-index: 10;
+}
+#sec{
+    position: fixed;
+    top:29%;
+    left:45.9%;
+    color: #228b22;
+    font-size: 100px;
+    z-index: 10;
+  
+}
+ 
+ #div1{
  position: relative;
+  top:30%;
+  font-size:43px;
  animation-name: example;
  animation-duration: 5s;
  animation-timing-function: linear;
@@ -33,83 +58,50 @@ text-align:center;
  from{ left:5%;}
  to{left:80%;}
 }
-.div-inline{ display:inline
-}
-
-
-</style>  
-</head>  
-  
-<body >
-
-<div id="id1">
-    <div id="show_time" class= "div-inline" style=" font-size:22px;">
-    <script>
-    setInterval("fun(show_time)",1);
-    function fun(timeID){
-    var date = new Date();  //创建对象
-    var m =date.getMonth()+1;   //获取月份  返回0-11
-    var d = date.getDate(); // 获取日
-    var h = date.getHours();  //时
-    var minute = date.getMinutes()  //分
-    var s = date.getSeconds(); //秒
-    var sss = date.getMilliseconds() ; //毫秒
-    if(m<10){
-    m = "0"+m;
-    }
-    if(d<10){
-    d = "0"+d;
-    }
-    if(h<10){
-    h = "0"+h;
-    }
-    if(minute<10){
-    minute = "0"+minute;
-    }
-    if(s<10){
-    s = "0"+s;
-    }
-    document.getElementById(timeID.id).innerHTML =  m+"月"+d+"日 ";
-      }
-    </script>
-    </div>
-
-    <div id="show_time1" class= "div-inline" style="font-size:40px;">
-    <script>
-    setInterval("fun1(show_time1)",1);
-    function fun1(timeID1){
-    var date = new Date();  //创建对象h
-     var s = date.getSeconds(); //秒
-    if(s<10){
-    s = "0"+s;
-    }
-    document.getElementById(timeID1.id).innerHTML = " "+ s+" ";
-      }
-    </script>
-
-    </div>
-     <div id = "show_time2" class= "div-inline" style=" font-size:22px;">
-      <script>
-       setInterval("fun2(show_time2)",1);
-       function fun2(timeID2){
-        var date = new Date();  //创建对象
-        var h = date.getHours();  //时
-        var minute = date.getMinutes()  //分
-        if(minute<10){
-         minute = "0"+minute;
-        }
-        if(h<10){
-          h = "0"+h;
-        }
-        document.getElementById(timeID2.id).innerHTML = h+":"+minute;
-       }
-      </script>
-     </div>
+ 
+</style>
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<center>
+</center>
+<div id="month">
+    <span id="m"></span>
 </div>
 
-<div id= "div1" style="margin-top:40%;font-size:43px;">远志</div>
+<div id="clock">
+    
+</div>
+<div id="sec">
+ 
+<div id= "div1">远志</div> 
+ 
+</div>
+</body>
+<script src="https://s0.pstatp.com/cdn/expire-1-M/jquery/2.2.4/jquery.min.js" type="application/javascript"></script>
+<script>
+    function refresh(){
 
-</body>  
-  
-</html>  
-  
+        var now = new Date();
+        var month = now.getMonth();
+        var date = now.getDate();
+        var hour = now.getHours();
+        var minu = now.getMinutes();
+        var sec = now.getSeconds();
+        month = month + 1;
+        if (hour < 10) hour = "0" + hour;
+        if (minu < 10) minu = "0" + minu;
+        $("#m").text(month+"月"+date+"日");
+        $("#clock").text(hour+":"+minu);
+        $("#sec").text(sec);
+		//$("#m").text("3月19日");
+        //$("#clock").text("14:51");
+        //$("#sec").text(36);
+        
+    }
+    $().ready(function(){
+        setInterval(refresh,1000)
+    })
+
+
+</script>
+</html>
